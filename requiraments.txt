@@ -1,0 +1,8 @@
+mcp[cli]
+copykitten
+pillow
+mss
+pyautogui
+pyxdg
+python3-xlib
+pydantic
