@@ -35,7 +35,7 @@ config = {
         "json_path": ["mcpServers"]
     },
     "console-chat-gpt": {
-"path": "/opt/console-chat-gpt/mcp_config.json",
+        "path": "/opt/console-chat-gpt/mcp_config.json",
         "env_override": True,
         "json_path": ["mcpServers"]
     }
