@@ -1,7 +1,7 @@
 # Linux-MCP
 MCP server to provide lots of tools for LLM and Linux integration. 
 > [!CAUTION]
-> This MCP server provide to LLM tools? that can damage your data or device. *You run this software on your risk!*
+> This MCP server provide to LLM tools, that can damage your data or device. **You run this software on your risk!**
 
 ## Functionality
 > [!WARNING]
