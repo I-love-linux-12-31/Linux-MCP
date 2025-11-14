@@ -100,7 +100,7 @@ flowchart LR
 
 ## Install
 ### Ubuntu
-> [!CAUTION]
+> [!WARNING]
 > For ubuntu, you need to install [uv](https://github.com/astral-sh/uv) manually!  
 ```bash
 sudo apt update 
