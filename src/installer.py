@@ -13,6 +13,8 @@ env_override = [
     "XDG_SESSION_DESKTOP",
     "XDG_CURRENT_DESKTOP",
     "XDG_MENU_PREFIX"
+    
+    "WAYLAND_DISPLAY",
 
     "LANG",
     "HOME",
