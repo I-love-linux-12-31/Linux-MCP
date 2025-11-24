@@ -1,0 +1,20 @@
+{
+  "id": "0x0000000",
+  "priority": 0,
+  "title": "Title",
+  "class": [
+    "class 1",
+    "class 2..."
+  ],
+  "pid": 0,
+  "geom": {
+    "x": 0,
+    "y": 0,
+    "width": 0,
+    "height": 0
+  },
+  "flags": [
+    "ACTIVE",
+    "_NET_WM_STATE_FOCUSED"
+  ]
+}

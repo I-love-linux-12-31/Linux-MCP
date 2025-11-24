@@ -1,0 +1,35 @@
+{
+  "session_info": {
+    "X11 display": 0,
+    "Wayland": 0,
+    "Desktop environment": "Budgie",
+    "default_display": 0,
+    "Displays":
+    [
+      {
+        "name": "DisplayPort-3",
+        "size": [1920, 1200],
+        "position": [1920, 277]
+      },
+      {
+        "name": "HDMI-A-2",
+        "size": [1920, 1080],
+        "position": [0, 0]
+      },
+      {
+        "name": "DVI-D-0",
+        "size": [1600, 1200],
+        "position": [3840,277]
+      }
+    ]
+
+  },
+  "windows_data": {
+    "active_window_id": "0x0000000",
+    "windows_top_to_bottom_order": [
+      {},
+      {},
+      {}
+    ]
+  }
+}
