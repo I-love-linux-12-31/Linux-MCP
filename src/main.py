@@ -30,7 +30,7 @@ def load_plugin_tools():
         try:
             module = importlib.import_module(tools_module_name)
         except Exception as e:
-            print(f"Failed to import module '{tools_module_name}' ({entry}): {e}")
+            # print(f"Failed to import module '{tools_module_name}' ({entry}): {e}") # todo: log this
             continue
 
         # Импортируем только функции
@@ -38,7 +38,7 @@ def load_plugin_tools():
             globals()[name] = obj
             # print(name)
 
-        print(f"Loaded functions from {tools_module_name}")
+        # print(f"Loaded functions from {tools_module_name}") # todo: log this
 
 
 if __name__ == "__main__":
