@@ -466,7 +466,7 @@ existing classes or even new classes with specific responsibilities.</val>
 </UML:Activity>
 <UML:Actor id="ac68f85f-c197-11f0-8788-b16586af8ac5">
 <name>
-<val>User</val>
+<val>Рядовой пользователь</val>
 </name>
 <presentation>
 <reflist>
@@ -476,7 +476,7 @@ existing classes or even new classes with specific responsibilities.</val>
 </UML:Actor>
 <UML:ActorItem id="ac696990-c197-11f0-bd96-b16586af8ac5">
 <matrix>
-<val>(1.0, 0.0, 0.0, 1.0, 182.99998474121094, 1364.1194814643572)</val>
+<val>(1.0, 0.0, 0.0, 1.0, 182.99998474121094, 1363.2267812690447)</val>
 </matrix>
 <top-left>
 <val>(0.0, 0.0)</val>
@@ -916,7 +916,7 @@ existing classes or even new classes with specific responsibilities.</val>
 <val>(1.0, 0.0, 0.0, 1.0, 372.0, 1257.8072256049822)</val>
 </matrix>
 <points>
-<val>[(-151.00001525878906, 126.15966796875), (-25.837493896484375, 146.81085205078125)]</val>
+<val>[(-151.00001525878906, 125.2669677734375), (-25.837493896484375, 146.81085205078125)]</val>
 </points>
 <head-connection>
 <ref refid="ac696990-c197-11f0-bd96-b16586af8ac5"/>
@@ -1049,6 +1049,9 @@ existing classes or even new classes with specific responsibilities.</val>
 <horizontal>
 <val>False</val>
 </horizontal>
+<orthogonal>
+<val>False</val>
+</orthogonal>
 <subject>
 <ref refid="b7e41e7b-c199-11f0-8bd8-b16586af8ac5"/>
 </subject>
@@ -1111,7 +1114,7 @@ existing classes or even new classes with specific responsibilities.</val>
 </UML:Property>
 <UML:UseCase id="a5dd395c-c19b-11f0-93d6-b16586af8ac5">
 <name>
-<val>Получать советы/помощь на основании текущего состояния нго системы</val>
+<val>Получать советы/помощь на основании текущего состояния его системы</val>
 </name>
 <presentation>
 <reflist>
