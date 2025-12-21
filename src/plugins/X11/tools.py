@@ -17,7 +17,8 @@ if __desktop.is_X11:
 
     from .image_capture_tools import (
         get_window_image,
-        get_full_desktop
+        get_full_desktop,
+        get_full_desktop_compressed
     )
 
 
