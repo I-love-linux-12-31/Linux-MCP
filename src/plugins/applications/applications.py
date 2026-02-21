@@ -39,7 +39,8 @@ def _get_info_by_file(path: str) -> (str, dict):
 def _load_all_desktop_files_info() -> dict:
     paths = []
     for directory_path in DESKTOP_FOLDERS:
-        paths += [directory_path + "/" + i for i in os.listdir(directory_path) if os.path.exists(directory_path)]
+        if os.path.exists(directory_path):
+            paths += [directory_path + "/" + i for i in os.listdir(directory_path)]
 
     data = dict()
     for path in paths:
