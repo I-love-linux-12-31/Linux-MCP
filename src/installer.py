@@ -13,7 +13,7 @@ env_override = [
     "XDG_SESSION_DESKTOP",
     "XDG_CURRENT_DESKTOP",
     "XDG_MENU_PREFIX"
-    
+
     "WAYLAND_DISPLAY",
 
     "LANG",
@@ -24,23 +24,33 @@ config = {
     "Claude": {
         "path": "~/.config/Claude/claude_desktop_config.json",
         "env_override": True,
-        "json_path": ["mcpServers"]
+        "auto_approve": False,
+        "json_path": ["mcpServers"],
                },
     "VSCode": {
         "path": "~/.config/Code/User/settings.json",
         "env_override": False,
-        "json_path": ["mcp", "servers"]
+        "auto_approve": False,
+        "json_path": ["mcp", "servers"],
     },
     "Kiro": {
         "path": "~/.kiro/settings/mcp.json",
         "env_override": True,
-        "json_path": ["mcpServers"]
+        "auto_approve": False,
+        "json_path": ["mcpServers"],
     },
     "console-chat-gpt": {
         "path": "/opt/console-chat-gpt/mcp_config.json",
         "env_override": True,
-        "json_path": ["mcpServers"]
-    }
+        "auto_approve": False,
+        "json_path": ["mcpServers"],
+    },
+    "LM-Studio": {
+        "path": "~/.lmstudio/mcp.json",
+        "env_override": True,
+        "auto_approve": False,
+        "json_path": ["mcpServers"],
+    },
 }
 
 
@@ -48,7 +58,7 @@ def install_for(software_name, software_config: dict, server_path) -> None:
     path = os.path.expanduser(software_config["path"])
     do_env_override = software_config["env_override"]
     json_path = software_config["json_path"]
-    autoapprove = True # todo: move to config
+    auto_approve = software_config["auto_approve"]
 
     if not os.path.exists(path):
         print(f"\033[31mMCP configuration file for {software_name} NOT found!\033[0m: {path}")
@@ -60,7 +70,11 @@ def install_for(software_name, software_config: dict, server_path) -> None:
     mcp_root = data
     try:
         for key in json_path:
-            mcp_root = mcp_root[key]
+            new_root = mcp_root.get(key, None)
+            if new_root is None:
+                mcp_root[key] = dict()
+                new_root = mcp_root[key]
+            mcp_root = new_root
     except KeyError:
         print(f"\033[31mBad file structure!\033[0m Update json_path or fix file: {path} ")
         return
@@ -72,7 +86,7 @@ def install_for(software_name, software_config: dict, server_path) -> None:
             server_path,
             "run",
             "src/main.py",
-        ]
+        ],
     }
 
     if do_env_override:
@@ -82,7 +96,7 @@ def install_for(software_name, software_config: dict, server_path) -> None:
             if value is not None:
                 mcp_root["Linux-MCP-demo"]["env"][key] = value
 
-    if autoapprove:
+    if auto_approve:
         mcp_root["Linux-MCP-demo"]["autoApprove"] = [
             "Clipboard-Get-Text",
             "Clipboard-Set-Text",
@@ -111,7 +125,7 @@ def install_for(software_name, software_config: dict, server_path) -> None:
 
             "Applications-Get-List",
             "Applications-Get-Info",
-            "Applications-Start"
+            "Applications-Start",
         ]
 
     with open(path, "wt") as f:

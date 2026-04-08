@@ -1,15 +1,27 @@
 [project]
 name = "linux-mcp"
-version = "0.1.5"
+version = "0.1.7"
 description = "MCP server to provide lots of tools for LLM and Linux integration."
 requires-python = ">=3.10, <3.14"
 dependencies = [
     "copykitten>=1.2.2",
-    "mcp[cli]>=1.13.0",
+    "mcp[cli]>=1.27.0",
     "mss>=10.1.0",
-    "pillow>=11.3.0",
+    "pillow>=12.2.0",
     "pyautogui>=0.9.54",
     "pyxdg>=0.28",
     "pydantic>=2.11",
-    "python3-xlib>=0.15"
+    "python3-xlib>=0.15",
 ]
+
+[tool.ruff]
+exclude = [
+    "_docs",
+    ".venv",
+    "venv",
+    "temp",
+]
+
+line-length = 121
+
+lint.select = ["W", "E", "Q", "COM"]
