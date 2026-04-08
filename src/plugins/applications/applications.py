@@ -86,6 +86,7 @@ def _start_app_by_name(name):
 def get_applications_list() -> list[str, ]:
     """
     Returns list of applications with .desktop files.
+    Keywords: programs, processes, application, applications, list, applications_list, applications_installed, Linux-MCP
     """
     return _get_applications_list()
 
@@ -95,6 +96,7 @@ def get_application_info(name: str) -> tuple[str, dict]:
     # todo: Add different modes: 1) by name 2) by path
     """
     Returns information about an application.
+    Keywords: programs, processes, application, applications, info, information, Linux-MCP
     """
     return _get_app_info(name)
 
@@ -103,6 +105,7 @@ def get_application_info(name: str) -> tuple[str, dict]:
 def start_application(name) -> str:
     """
     Call application start. Tool doesn't guarantee that application successfully started.
+    Keywords: programs, processes, application, applications, run, application_run, start, open, call, execute, Linux-MCP
     """
     # todo: Add different modes: 1) by name 2) by path
     return _start_app_by_name(name)

@@ -22,6 +22,7 @@ mcp = get_mcp()
 def get_window_image(window_hex_id: str) -> list[ImageContent | TextContent]:
     """
     Returns screenshot of window by id(in hex form) from X11 and some metadata.
+    Keywords: X11, window, image, GUI, image_grab, window_manager, Linux-MCP
     """
     image, raw_metadata = screenshot_window_by_id(window_hex_id)
     metadata = TextContent(
@@ -40,6 +41,7 @@ def get_window_image(window_hex_id: str) -> list[ImageContent | TextContent]:
 def get_full_desktop() -> ImageContent:
     """
     Returns high quality image of full-screen. If file is too large use Desktop-Get-Image-Compressed tool.
+    Keywords: X11, window, image, GUI, image_grab, desktop, screenshot, Linux-MCP
     """
     buffer = io.BytesIO()
     image = pyautogui.screenshot()
@@ -71,6 +73,8 @@ def get_full_desktop_compressed(
         max_height: Maximum height (default 1200)
         quality: JPEG quality 1-95 (default 75)
         reduce_colors: Apply color quantization (default False)
+
+    Keywords: X11, window, image, GUI, image_grab, desktop, screenshot, Linux-MCP
     """
     image = pyautogui.screenshot()
 

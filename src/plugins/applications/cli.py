@@ -147,6 +147,7 @@ async def list_processes(
 
     Returns:
         {"processes": [ {"pid", "user", "cpu", "mem", "command"}, ... ]}
+    Keywords: programs, processes, task_manager, process, task, top, application, applications, Linux-MCP
     """
     top_n = min(max(1, top_n), 200)
     ps_cmd = "ps aux --no-headers"
@@ -201,6 +202,7 @@ async def run_command(
             "pid": int | None,
             "command": str
         }
+    Keywords: programs, processes, application, applications, script, shell, bash, command, execute, call, start, Linux-MCP
     """
 
     timeout = min(max(0.1, timeout), MAX_TIMEOUT)

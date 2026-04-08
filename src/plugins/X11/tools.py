@@ -12,6 +12,7 @@ if __desktop.is_X11:
     def get_desktop_state() -> str:
         """
         Returns info about current session and opened windows as text. Useful to know position of window, it's title and info about displays.
+        Keywords: X11, window_manager, windows, window_list, desktop_environment, window_manager, status, info, Linux-MCP
         """
         return json.dumps(X11Desktop().serialize(), indent=2)
 

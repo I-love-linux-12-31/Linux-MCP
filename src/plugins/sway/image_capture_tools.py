@@ -15,6 +15,7 @@ mcp = get_mcp()
 def get_full_desktop() -> ImageContent:
     """
     Returns high quality image of full-screen. If file is too large use Desktop-Get-Image-Compressed tool.
+    Keywords: X11, window, image, GUI, image_grab, desktop, screenshot, Linux-MCP
     """
     buffer = io.BytesIO()
     image = pyautogui.screenshot()
@@ -46,6 +47,7 @@ def get_full_desktop_compressed(
         max_height: Maximum height (default 1200)
         quality: JPEG quality 1-95 (default 75)
         reduce_colors: Apply color quantization (default False)
+    Keywords: X11, window, image, GUI, image_grab, desktop, screenshot, Linux-MCP
     """
     image = pyautogui.screenshot()
 

@@ -26,6 +26,7 @@ def single_keypress(key: str = "", presses: int = 1):
     Supports special keys like "enter", "escape", "tab", "space", "backspace", "delete",
     arrow keys ("up", "down", "left", "right"), function keys ("f1"-"f12").
     'presses' argument allows to make multiple presses for one key, defaults = 1.
+    Keywords: keyboard, key_press, press, Linux-MCP
     """
     pyautogui.press(_fix_pyautogui_keys([key])[0], presses=presses, interval=0.05)
 
@@ -36,6 +37,7 @@ def hotkey_press(hotkey:list[str]):
     Press multiple keyboard keys in combinations like ["ctrl", "c"], ["shift", "alt"] or ["alt", "f2"].
     Supports special keys like "enter", "escape", "tab", "space", "backspace", "delete",
     arrow keys ("up", "down", "left", "right"), function keys ("f1"-"f12").
+    Keywords: keyboard, key_press, press, hotkey, Linux-MCP
     """
     pyautogui.hotkey(*_fix_pyautogui_keys(hotkey))
 
@@ -43,6 +45,7 @@ def hotkey_press(hotkey:list[str]):
 def type_line_of_text(text: str) -> str:
     """
     Types single line of text.
+    Keywords: keyboard, key_press, press, text, type, text_type, Linux-MCP
     """
     warning_chars = []
     for char in text:
@@ -62,6 +65,7 @@ def type_line_of_text(text: str) -> str:
 def type_text(text: str) -> str:
     """
     Types big text. '\n' character supported.
+    Keywords: keyboard, key_press, press, text, type, text_type, Linux-MCP
     """
     warning_chars = []
     for char in text:

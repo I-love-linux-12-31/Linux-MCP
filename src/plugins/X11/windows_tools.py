@@ -205,6 +205,7 @@ def move_window(window_id, position_x, position_y) -> None:
     """
     Moves window to specified position. Arguments: window_id(in hex form), position_x, position_y.
     Warning: tool doesn't change window priority, focus state or other params!
+    Keywords: X11, window, window_move, window_manager, Linux-MCP
     """
     _move_window(window_id, position_x, position_y)
 
@@ -214,6 +215,7 @@ def resize_window(window_id, width, height) -> None:
     """
     Resizes window. Arguments: window_id(in hex form), width, height.
     Warning: tool doesn't change window priority, focus state or other params!
+    Keywords: X11, window, window_resize, resize, window_manager, Linux-MCP
     """
     _resize_window(window_id, width, height)
 
@@ -222,6 +224,7 @@ def resize_window(window_id, width, height) -> None:
 def focus_window(window_id) -> None:
     """
     Sets window focused. Arguments: window_id(in hex form).
+    Keywords: X11, window, window_focus, focus, window_manager, Linux-MCP
     """
     _focus_window(window_id)
 
@@ -231,6 +234,7 @@ def close_window(window_id) -> None:
     """
     Sends close signal to window. Arguments: window_id(in hex form).
     Important: Tool not guarantee that window will be closed. App can ask confirmation or ignore signal.
+    Keywords: X11, window, window_close, close, stop, window_manager, Linux-MCP
     """
     _close_window(window_id)
 
@@ -239,11 +243,6 @@ def close_window(window_id) -> None:
 def toggle_fullscreen_window(window_id) -> None:
     """
     Changes fullscreen state of window and set it focused. Arguments: window_id(in hex form).
+    Keywords: X11, window, window_focus, focus, window_resize, resize, window_manager, fullscreen, screen, Linux-MCP
     """
     _toggle_fullscreen(window_id)
-
-
-
-
-
-

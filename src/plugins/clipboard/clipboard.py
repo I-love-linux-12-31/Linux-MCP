@@ -16,6 +16,7 @@ mcp = get_mcp()
 async def get_text() -> str:
     """
     Returns text from clipboard.
+    Keywords: clipboard, copy, paste, clipboard_get, Linux-MCP
     """
     return copykitten.paste()
 
@@ -24,6 +25,7 @@ async def get_text() -> str:
 async def set_text(text: str) -> None:
     """
     Writes text to clipboard.
+    Keywords: clipboard, copy, clipboard_set, Linux-MCP
     """
     return copykitten.copy(text)
 
@@ -31,6 +33,7 @@ async def set_text(text: str) -> None:
 async def get_image() -> ImageContent:
     """
     Returns image from clipboard.
+    Keywords: clipboard, copy, paste, image, clipboard_get, Linux-MCP
     """
     pixels, width, height = copykitten.paste_image()
     image = Image.frombytes(mode="RGBA", size=(width, height), data=pixels)
@@ -46,6 +49,7 @@ async def get_image() -> ImageContent:
 async def copy_image(x: int, y: int, width: int, height: int) -> None:
     """
     Copies screen area to clipboard.
+    Keywords: clipboard, copy, clipboard_set, image, screenshot, Linux-MCP
     """
     with mss.mss() as sct:
         area = {"top": y, "left": x, "width": width, "height": height}
@@ -67,6 +71,7 @@ async def paste(x: int, y: int, click: bool = True) -> None:
     """
     Pastes clipboard using Ctrl + V.
     x and y are coordinates. click is boolean flag, that requests click before paste.
+    Keywords: clipboard, paste, hotkey, Linux-MCP
     """
     if click:
         pyautogui.click(x, y)
@@ -77,6 +82,7 @@ async def paste_alt(x: int, y: int, click: bool = True) -> None:
     """
     Pastes clipboard using Ctrl + Shift + V. Useful for most terminal apps.
     x and y are coordinates. click is boolean flag, that requests click before paste.
+    Keywords: clipboard, paste, hotkey, Linux-MCP
     """
     if click:
         pyautogui.click(x, y)
