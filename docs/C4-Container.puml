@@ -1,0 +1,46 @@
+@startuml C4-Container
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+title Linux-MCP Container Diagram
+
+Person(llm_user, "LLM User", "Human using LLM with MCP capabilities")
+
+System_Boundary(linux_mcp_system, "Linux-MCP System") {
+    Container(mcp_core, "MCP Core", "Python, FastMCP", "Core MCP server functionality, tool registration, request handling")
+    Container(plugin_system, "Plugin System", "Python", "Dynamic plugin loading and management")
+    Container(input_plugin, "Input Plugin", "Python, pyautogui", "Cursor and keyboard control tools")
+    Container(clipboard_plugin, "Clipboard Plugin", "Python, copykitten", "Clipboard text and image operations")
+    Container(x11_plugin, "Graphics Server Plugin - X11/Wayland(DE specific)", "Python, python3-xlib/ DE API", "Window management, screenshot capture...")
+    Container(applications_plugin, "Applications Plugin", "Python, subprocess", "Application launching and information")
+    Container(misc_module, "Misc Module", "Python", "Utility functions, wait operations, other tools")
+    Container(filesystem_plugin, "File System Plugin", "Python", "Files Read/Write functions")
+'    Container_Boundary(filesystem_plugin, "File System Plugin") {
+'    Component(files_manipulation, "Files manipulation", "", "Files Read/Write functions")
+' }
+}
+
+System_Ext(llm_client, "LLM Client", "Claude Desktop, VS Code, etc.")
+System_Ext(linux_desktop, "Linux Desktop", "X11/Wayland display server")
+System_Ext(system_apps, "System Applications", "GUI and CLI applications")
+
+System_Ext(file_system, "File System", "Interaction with files")
+
+Rel(llm_user, llm_client, "Uses")
+Rel(llm_client, mcp_core, "MCP Protocol", "tool calls, responses")
+
+Rel(mcp_core, plugin_system, "Loads plugins", "importlib")
+Rel(plugin_system, input_plugin, "Loads", "dynamic import")
+Rel(plugin_system, clipboard_plugin, "Loads", "dynamic import")
+Rel(plugin_system, x11_plugin, "Loads", "dynamic import")
+Rel(plugin_system, applications_plugin, "Loads", "dynamic import")
+Rel(plugin_system, misc_module, "Loads", "dynamic import")
+Rel(plugin_system, filesystem_plugin, "Loads", "dynamic import")
+
+Rel(input_plugin, linux_desktop, "Controls", "cursor movement, clicks, keyboard input")
+Rel(clipboard_plugin, linux_desktop, "Accesses", "text and image clipboard")
+Rel(x11_plugin, linux_desktop, "Queries and controls", "window info, screenshots, window manipulation")
+Rel(applications_plugin, system_apps, "Launches and queries", "application startup, process info")
+Rel(misc_module, linux_desktop, "Interacts", "other operations")
+Rel(filesystem_plugin, file_system, "Interacts", "files operations")
+
+@enduml
