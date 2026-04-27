@@ -3,6 +3,8 @@ import sys
 import importlib
 import inspect
 
+from mcp.server.fastmcp.server import logger
+
 PLUGINS_DIR = "/usr/share/Linux-MCP/plugins"
 sys.path.append("/usr/share/Linux-MCP")
 sys.path.append(os.getcwd())
@@ -17,7 +19,7 @@ from modules.all_mcp_functions import *
 
 def load_plugin_tools():
     if not os.path.isdir(PLUGINS_DIR):
-        print(f"Directory '{PLUGINS_DIR}' does not exist — skipping plugin load.")
+        logger.error(f"Directory '{PLUGINS_DIR}' does not exist — skipping plugin load.")
         return
 
     for entry in os.listdir(PLUGINS_DIR):
@@ -30,15 +32,14 @@ def load_plugin_tools():
         try:
             module = importlib.import_module(tools_module_name)
         except Exception as e:
-            # print(f"Failed to import module '{tools_module_name}' ({entry}): {e}") # todo: log this
+            logger.error(f"Failed to import module '{tools_module_name}' ({entry}): {e}")
             continue
 
-        # Импортируем только функции
         for name, obj in inspect.getmembers(module, inspect.isfunction):
             globals()[name] = obj
-            # print(name)
+            logger.debug(f"Loaded tool '{name}' from module '{tools_module_name}'")
 
-        # print(f"Loaded functions from {tools_module_name}") # todo: log this
+        logger.info(f"Tools from {tools_module_name} loaded.")
 
 
 if __name__ == "__main__":
