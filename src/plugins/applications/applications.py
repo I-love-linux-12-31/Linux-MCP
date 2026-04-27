@@ -72,8 +72,10 @@ def _get_app_info(name):
 
 def _start_app_by_name(name):
     path = _load_all_desktop_files_info().get(name, None)
+    if path is None and ".desktop" in name and os.path.exists(name):
+        path = name
     if path is None:
-        raise Exception("Failed to start apop. Unknown name. ")
+        raise Exception("Failed to start apop. Unknown name or path. ")
     try:
         subprocess.Popen(["gio", "launch", path])
     except Exception as e:
@@ -105,7 +107,7 @@ def get_application_info(name: str) -> tuple[str, dict]:
 def start_application(name) -> str:
     """
     Call application start. Tool doesn't guarantee that application successfully started.
+    You can provide full path to .desktop file instead name.
     Keywords: programs, processes, application, applications, run, application_run, start, open, call, execute, Linux-MCP
     """
-    # todo: Add different modes: 1) by name 2) by path
     return _start_app_by_name(name)

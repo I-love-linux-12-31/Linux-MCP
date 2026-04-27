@@ -180,7 +180,7 @@ async def run_command(
     use_shell: bool = True,
 ) -> dict:
     """
-    Run a shell command and return structured output.
+    Run a shell command and return structured output. This tool is NOT designed to run long-term applications.
 
     Args:
         command: The shell command to execute (e.g. "ls -la /tmp").
