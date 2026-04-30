@@ -18,6 +18,8 @@ env_override = [
 
     "LANG",
     "HOME",
+
+    "HYPRLAND_INSTANCE_SIGNATURE",
 ]
 
 config = {
@@ -79,7 +81,7 @@ def install_for(software_name, software_config: dict, server_path) -> None:
         print(f"\033[31mBad file structure!\033[0m Update json_path or fix file: {path} ")
         return
 
-    mcp_root["Linux-MCP-demo"] = {
+    mcp_root["Linux-MCP"] = {
         "command": "uv",
         "args": [
             "--directory",
@@ -90,14 +92,14 @@ def install_for(software_name, software_config: dict, server_path) -> None:
     }
 
     if do_env_override:
-        mcp_root["Linux-MCP-demo"]["env"] = dict()
+        mcp_root["Linux-MCP"]["env"] = dict()
         for key in env_override:
             value = os.environ.get(key, None)
             if value is not None:
-                mcp_root["Linux-MCP-demo"]["env"][key] = value
+                mcp_root["Linux-MCP"]["env"][key] = value
 
     if auto_approve:
-        mcp_root["Linux-MCP-demo"]["autoApprove"] = [
+        mcp_root["Linux-MCP"]["autoApprove"] = [
             "Clipboard-Get-Text",
             "Clipboard-Set-Text",
             "Clipboard-Get-Image",

@@ -59,6 +59,7 @@ def get_window_image(window_hex_id: str) -> list:
     """
     Returns screenshot of a single window by hex address (e.g. 0x55a8f0c8a0e0) and its metadata.
     Hyprland implementation uses grim to capture the window's reported geometry.
+    Note: Tool can work incorrectly with windows on non-current workspace of for hidden windows.
     Keywords: Hyprland, Wayland, window, image, GUI, image_grab, window_manager, Linux-MCP
     """
     desktop = HyprlandDesktop()

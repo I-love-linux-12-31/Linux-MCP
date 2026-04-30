@@ -1,5 +1,4 @@
-import os
-import pyautogui
+from time import sleep
 import subprocess
 from typing import Literal
 from mcp.types import TextContent, CallToolResult
@@ -16,7 +15,7 @@ def wait(seconds: float = 1.5) -> None:
     Useful for waiting for applications start or other long action complete.
     Keywords: Wait, pause, sleep, Linux-MCP
     """
-    pyautogui.sleep(seconds)
+    sleep(seconds)
 
 
 @mcp.tool(name="Call-To-Open-URI")
