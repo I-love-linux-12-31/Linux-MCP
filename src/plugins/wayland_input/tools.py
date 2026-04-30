@@ -1,7 +1,7 @@
 from src.modules.windows_and_desktop.desktop import BaseDesktopInfo
 
 __desktop = BaseDesktopInfo()
-__desktop.update_state()
+__desktop.find_session_info()
 if not __desktop.is_X11:
     from .keyboard import (
         single_keypress,

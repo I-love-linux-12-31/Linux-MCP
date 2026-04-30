@@ -37,7 +37,11 @@ class BaseDesktopInfo:
         for v in ('XDG_CURRENT_DESKTOP', 'DESKTOP_SESSION', 'GDMSESSION'):
             if os.environ.get(v):
                 de = os.environ.get(v)
-        session = os.environ.get("XDG_SESSION_TYPE")
+        session = os.environ.get("XDG_SESSION_TYPE", "?")
+
+        if de.lower() == "hyprland":
+            session = "wayland"
+
         if session.lower() == "x11":
             self.is_X11 = True
             self.is_Wayland = False
