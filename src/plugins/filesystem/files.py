@@ -1,4 +1,9 @@
+import io
 from pathlib import Path
+
+from PIL import Image
+from mcp.types import ImageContent
+from mcp.server.fastmcp import Image as MCPImage
 
 from mcp.server.fastmcp import FastMCP
 from src.modules.init_system import get_mcp
@@ -15,6 +20,7 @@ def read_file(path: str, encoding: str = "utf-8") -> str:
         encoding: File encoding. Default = 'utf-8'.
     Returns:
         File contents as a string.
+    Keywords: file, read, load, get content, Linux-MCP
     """
     file_path = Path(path).expanduser().resolve()
     if not file_path.exists():
@@ -63,6 +69,7 @@ def update_file(
         encoding: File encoding. Default = 'utf-8'.
     Returns:
         Confirmation message with the resolved file path.
+    Keywords: file, update, edit, Linux-MCP
     """
     file_path = Path(path).expanduser().resolve()
     if not file_path.exists():
@@ -97,3 +104,28 @@ def update_file(
         raise ValueError(f"Unknown mode '{mode}'. Use 'append', 'prepend', or 'replace'.")
 
     return f"File updated ({mode}) successfully: {file_path}"
+
+
+@mcp.tool(name="File-Read-Image")
+def read_image_file(path: str) -> ImageContent:
+    """
+    Read and return the contents of a file with image.
+    Args:
+        path: Absolute or relative path to the file.
+    Returns:
+        File contents as image.
+    Keywords: file, image, picture, read, load, Linux-MCP
+    """
+    file_path = Path(path).expanduser().resolve()
+    if not file_path.exists():
+        raise FileNotFoundError(f"File not found: {file_path}")
+    if not file_path.is_file():
+        raise IsADirectoryError(f"Path is a directory, not a file: {file_path}")
+
+    image = Image.open(file_path)
+
+    buffer = io.BytesIO()
+    image.save(buffer, format="PNG")
+    img_bytes = buffer.getvalue()
+    img_obj = MCPImage(data=img_bytes, format="png")
+    return img_obj.to_image_content()
