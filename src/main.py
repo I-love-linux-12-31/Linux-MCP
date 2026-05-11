@@ -44,4 +44,4 @@ def load_plugin_tools():
 
 if __name__ == "__main__":
     load_plugin_tools()
-    mcp.run()
+    mcp.run(transport=os.environ.get("FASTMCP_TRANSPORT", "stdio"))

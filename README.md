@@ -74,7 +74,7 @@ Additional packages required for Wayland sessions:
 
 For a system-wide install (project copied into `/opt/Linux-MCP/`), use `install_global.sh` as root.
 
-### Supported client applications
+### Client software configuration
 The installer adds Linux-MCP to:
 * Claude Desktop
 * VS Code
@@ -82,7 +82,7 @@ The installer adds Linux-MCP to:
 * LM Studio
 
 
-### Manual configuration (other clients)
+#### Manual configuration - other clients, on same device
 For any other MCP-compatible client, add Linux-MCP to its config file manually. Don't forget to forward your session's environment variables — without them the server can't access to your display, clipboard, compositor...
 
 ```json
@@ -116,6 +116,28 @@ For any other MCP-compatible client, add Linux-MCP to its config file manually. 
   }
 }
 ```
+
+#### Working on remote system
+Linux-MCP supports http and sse transport protocols. You can run server with `./run_server.sh` or manually:
+```bash
+export FASTMCP_HOST=your IP
+export FASTMCP_PORT=your port
+export FASTMCP_TRANSPORT=streamable-http or sse
+
+uv run src/main.py
+```
+
+On a client you need to add server by url. 
+```json
+{
+  "mcpServers": {
+    "Linux-MCP": {
+      "url": "http://<IP>:<port>/mcp"
+    }
+  }
+}
+```
+
 
 ## Author
 Yaroslav Kuznetsov
