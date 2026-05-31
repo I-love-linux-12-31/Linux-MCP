@@ -43,6 +43,12 @@ MCP server that exposes a wide set of tools to let an LLM interact with a Linux 
 
 For an overview of the architecture, see [HowItWorks.md](docs/HowItWorks.md).
 
+## Videos
+
+1. Download GUI app, test and fix bugs. [watch](https://static.nl-0.yk-hosted-12-31.ydns.eu/uploads/Linux-MCP/demo/hd/tik-tak-toe_AltLinux-GNOME.webm)
+2. Usage in n8n. [watch](https://static.nl-0.yk-hosted-12-31.ydns.eu/uploads/Linux-MCP/demo/hd/n8n_2.mkv)
+3. Install KDE on Debian. [watch](https://static.nl-0.yk-hosted-12-31.ydns.eu/uploads/Linux-MCP/demo/Install-KDE.mp4)
+
 ## Install
 
 ### Ubuntu / Debian
