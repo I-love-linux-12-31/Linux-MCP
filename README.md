@@ -45,9 +45,9 @@ For an overview of the architecture, see [HowItWorks.md](docs/HowItWorks.md).
 
 ## Videos
 
-1. Download GUI app, test and fix bugs. [watch](https://static.nl-1.rs-hosted.ydns.eu/uploads/Linux-MCP/demo/tik-tak-toe_AltLinux-GNOME.mp4)
-2. Usage in n8n. [watch](https://static.nl-1.rs-hosted.ydns.eu/uploads/Linux-MCP/demo/n8n_2.mp4)
-3. Install KDE on Debian. [watch](https://static.nl-1.rs-hosted.ydns.eu/uploads/Linux-MCP/demo/Install-KDE.mp4)
+1. Download GUI app, test and fix bugs. [watch](https://static.nl-0.yk-hosted-12-31.ydns.eu/uploads/Linux-MCP/demo/hd/tik-tak-toe_AltLinux-GNOME.webm)
+2. Usage in n8n. [watch](https://static.nl-0.yk-hosted-12-31.ydns.eu/uploads/Linux-MCP/demo/hd/n8n_2.mkv)
+3. Install KDE on Debian. [watch](https://static.nl-0.yk-hosted-12-31.ydns.eu/uploads/Linux-MCP/demo/Install-KDE.mp4)
 
 ## Install
 
@@ -143,7 +143,3 @@ On a client you need to add server by url.
   }
 }
 ```
-
-
-## Author
-Yaroslav Kuznetsov
